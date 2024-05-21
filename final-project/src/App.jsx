@@ -10,23 +10,33 @@ function App() {
   const [currentPage, setCurrentPage] = useState('Movies');
   const [likedMovies, setLikedMovies] = useState([]);
   const [wishlistMovies, setWishlistMovies] = useState([]);
-
   const handleLike = (movie) => {
-    setLikedMovies((prev) => [...prev, movie]);
+    setLikedMovies((prev) => {
+      if (!prev.some((m) => m.name === movie.name)) { // Assuming movies have unique IDs
+        return [...prev, movie];
+      }
+      return prev;
+    });
+    console.log(likedMovies);
     /*Learned about array fromhttps://www.w3schools.com/js/js_arrays.asp#gsc.tab=0*/
   };
-
+  
   const handleWishlist = (movie) => {
-    setWishlistMovies((prev) => [...prev, movie]);
-  };
+    setWishlistMovies((prev) => {
+      if (!prev.some((m) => m.name === movie.name)) { // Assuming movies have unique IDs
+        return [...prev, movie];
+      }
+      return prev;
+    });
+  };  
 
   const renderPage = () => {
     switch (currentPage) {
       case 'Movies':
         return (
           <div className="flex flex-wrap">
-            <MoviePoster name="Movie 1" image="https://via.placeholder.com/200x300" onLike={handleLike} onWishlist={handleWishlist} />
-            <MoviePoster name="Movie 2" image="https://via.placeholder.com/200x300" onLike={handleLike} onWishlist={handleWishlist} />
+            <MoviePoster name="Movie 1" image="https://via.placeholder.com/200x300" onLike={handleLike}  onWishlist={handleWishlist} />
+            <MoviePoster name="Movie 2" image="https://via.placeholder.com/200x300" onLike={handleLike}  onWishlist={handleWishlist} />
           </div>
         );
       case 'Liked':
