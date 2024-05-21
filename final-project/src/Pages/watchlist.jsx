@@ -4,7 +4,7 @@ import MoviePoster from '../MoviePoster';
 function Watchlist({ movies }) {
   return (
     <div>
-      <h1>Watchlist</h1>
+      <h1 className="text-3xl font-bold mb-4">Watchlist</h1>
       <div className="flex flex-wrap">
         {movies.map((movie, index) => (
           <MoviePoster key={index} name={movie.name} image={movie.image} onLike={() => {}} onWishlist={() => {}} />
