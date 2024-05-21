@@ -35,7 +35,7 @@ function Navigation({ setCurrentPage }) {
             </span>
         </button>
          
-        <button className="flex flex-row items-center bg-none border-none my-[5px] mr-2.5 py-2.5 px-[15px] rounded-[15px] w-1/5 hover:cursor-pointer hover:hover:bg-slate-400">
+        <button className="flex flex-row items-center bg-none border-none my-[5px] mr-2.5 py-2.5 px-[15px] rounded-[15px] w-full hover:cursor-pointer hover:hover:bg-slate-400">
           <div className="w-[30px] h-[30px]">
             <CreateIcon className="text-2xl mt-0.5 ml-0.5 transition-all duration-150 ease-linear delay-0 hover:text-3xl hover:mt-0 hover:ml-0" />
           </div>
