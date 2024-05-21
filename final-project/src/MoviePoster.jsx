@@ -2,36 +2,6 @@ import React, { useState } from 'react';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import Checkbox from '@mui/material/Checkbox';
-import { styled } from '@mui/material/styles';
-
-const PosterContainer = styled('div')({
-  width: '200px',
-  margin: '20px',
-  border: '1px solid #ddd',
-  borderRadius: '8px',
-});
-
-const PosterImage = styled('img')({
-  width: '100%',
-  height: '300px',
-  objectFit: 'cover',
-});
-
-const PosterContent = styled('div')({
-  padding: '10px',
-  textAlign: 'center',
-});
-
-const MovieName = styled('h3')({
-  fontSize: '16px',
-  margin: '10px 0',
-});
-
-const IconsContainer = styled('div')({
-  display: 'flex',
-  justifyContent: 'space-around',
-  alignItems: 'center',
-});
 
 function MoviePoster({ name, image, onLike, onWishlist }) {
   const [liked, setLiked] = useState(false);
@@ -48,11 +18,11 @@ function MoviePoster({ name, image, onLike, onWishlist }) {
   };
 
   return (
-    <PosterContainer>
-      <PosterImage src={image} alt={name} />
-      <PosterContent>
-        <MovieName>{name}</MovieName>
-        <IconsContainer>
+    <div className="w-48 m-5 border border-gray-300 rounded-lg">
+      <img src={image} alt={name} className="w-full h-72" />
+      <div className="p-3 text-center">
+        <h3 className="text-lg mb-2">{name}</h3>
+        <div className="flex justify-around items-center">
           {liked ? (
             <FavoriteIcon style={{ color: 'red', cursor: 'pointer' }} onClick={handleLikeClick} />
           ) : (
@@ -63,9 +33,9 @@ function MoviePoster({ name, image, onLike, onWishlist }) {
             onChange={handleWishlistChange}
             color="primary"
           />
-        </IconsContainer>
-      </PosterContent>
-    </PosterContainer>
+        </div>
+      </div>
+    </div>
   );
 }
 
