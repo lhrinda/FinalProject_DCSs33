@@ -8,11 +8,12 @@ function MoviePoster({ name, image, onLike, onWishlist }) {
   const [wishlist, setWishlist] = useState(false);
 
   const handleLikeClick = () => {
-    setLiked(!liked);
+    (liked) ? setLiked(false) : setLiked(true);
     onLike({ name, image });
   };
 
   const handleWishlistChange = (event) => {
+    (wishlist) ? setWishlist(false) : setWishlist(true);
     setWishlist(event.target.checked);
     onWishlist({ name, image });
   };
