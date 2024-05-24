@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.signup-login-div {
+  @apply flex flex-col w-[250px] p-4 m-auto my-4;
+}
+
+.signup-login-input {
+  @apply w-full bg-gray-500 border-[1px] border-solid border-gray-500 rounded-[3px] p-3 mb-5 focus:outline-gray-400 focus:outline-1 focus:outline;
+}
+
+.signup-login-button {
+  @apply w-full bg-blue-500 text-white font-semibold p-3 rounded-md hover:bg-blue-400;
+}
